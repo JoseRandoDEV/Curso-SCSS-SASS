@@ -1,0 +1,76 @@
+// 1-COMENTARIOS UNA SOLA LINEA
+
+/* COMENTARIOS VARIAS LINEAS
+COMO SE VE
+*/
+
+@import 'variables';    // IMPORTAMOS EL ARCHIVO VARIABLES
+
+// COMO UTILIZAR LAS VARIABLES
+
+body{
+    background-color: $primary-color;
+}
+
+// 3-ANIDAMIENTO
+
+div{
+    h1{
+        color: $third-color;
+    }
+}
+
+// 4-MIXIN (SIRVE PARA ESCRIBIR UN BLOQUE DE CODIGO QUE RECIBE UN PARAMETROS)
+
+@mixin rodondeo ($radius){
+    border-radius: $radius;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $secundary-color;
+    @include rodondeo(20px)
+}
+
+button{
+    @include rodondeo(10px);
+    margin-bottom: 13px;
+}
+
+// 5-OPERACIONES
+
+$altura: 16px;
+
+p{
+    font-size: $altura * 1.0;
+}
+
+// 6-HERENCIA
+
+%general{
+    border: solid black;
+    border-radius: 10px;
+}
+
+.herencia{
+    @extend %general;
+    background-color: aqua;
+}
+
+// 7-CONDICIONALES
+
+body{
+    @if $primary-color == red{
+        background-color: violet;
+    }@else{
+        background-color: maroon;
+    }
+
+}
+
+// 8-IMPORTACIONES
+
+//EJEMPLO: @import 'variables';
